@@ -1,6 +1,8 @@
 # WhatsAppExtractor
 Extracts necessary contents from a WhatsApp chat-export.  
-Please see the [Whatsapp FAQ](https://faq.whatsapp.com/en/android/23756533), if you want to know how to export chat conversations on whatsapp.
+## Prerequisites
+- Please see the [Whatsapp FAQ](https://faq.whatsapp.com/en/android/23756533), if you want to know how to export chat conversations on whatsapp.
+- Python >= 3.6 
 
 
 ## Usage:
