@@ -77,7 +77,8 @@ def process_file(content: list):
         else:
             # if date not found, consider it as a continuation of prev line
             temp_dict["messages"] += ' ' + line.strip() # add to prev line message
-            temp_dict["counts"] = ''.join(re.findall(count_pattern, line.strip()))
+            temp_dict["counts"] = substitute_odia_digits(''.join(re.findall(count_pattern,
+                                                            line.strip())))
     return csv_list
 
 
