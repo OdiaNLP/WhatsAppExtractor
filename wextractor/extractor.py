@@ -140,7 +140,3 @@ def main():
     file_content = read_export_file(input_filename)
     csv_list = process_file(file_content)
     write_extract_file(output_filename, csv_list, columns.keys())
-
-
-if __name__ == "__main__":
-    main()
