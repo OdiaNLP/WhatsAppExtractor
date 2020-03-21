@@ -128,3 +128,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .vscode/launch.json
+.vscode/settings.json
+data/report_file.csv
+data/WhatsApp*.txt
+src/.DS_Store

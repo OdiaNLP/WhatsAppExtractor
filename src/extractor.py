@@ -16,7 +16,7 @@ import re
 import sys
 from collections import defaultdict, Counter
 
-from patterns import (  date_pattern,
+from .patterns import (  date_pattern,
                         time_pattern,
                         name_pattern,
                         message_pattern,

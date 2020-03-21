@@ -1,0 +1,2 @@
+pytest==5.3.5
+covergae==5.0.4
