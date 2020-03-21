@@ -130,10 +130,10 @@ def main():
         "-o",
         "--output",
         help="Output report csv filename",
-        default="data/report_file.csv",
+        default="./data/report_file.csv",
     )
     args = parser.parse_args()
-
+    print(os.getcwd)
     input_filename = args.input
     output_filename = args.output
 
