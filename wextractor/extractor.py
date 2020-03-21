@@ -1,13 +1,6 @@
 """
 Author: Soumendra Kumar Sahoo
 Date: 13th Feb 2020
-
-Usage:
-    python extractor.py -i <path/input_filename.txt>
-    or
-    python extractor.py -i <path/input_filename.txt> -o <path/output_filename.csv>
-
-Default output report path: data/report_file.csv
 """
 import argparse
 import csv
