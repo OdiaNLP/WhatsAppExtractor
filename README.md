@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/MTEnglish2Odia/WhatsAppExtractor.svg?branch=master)](https://travis-ci.com/MTEnglish2Odia/WhatsAppExtractor)
+
 # WhatsAppExtractor
 Extracts necessary contents from a WhatsApp chat-export.  
 ## Prerequisites
