@@ -131,4 +131,4 @@ dmypy.json
 .vscode/settings.json
 data/report_file.csv
 data/WhatsApp*.txt
-src/.DS_Store
+wextractor/.DS_Store

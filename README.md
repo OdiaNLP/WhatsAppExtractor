@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/MTEnglish2Odia/WhatsAppExtractor.svg?branch=master)](https://travis-ci.com/MTEnglish2Odia/WhatsAppExtractor)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 # WhatsAppExtractor
 Extracts necessary contents from a WhatsApp chat-export.  
@@ -9,10 +10,10 @@ Extracts necessary contents from a WhatsApp chat-export.
 
 ## Usage:
 ```
-python extractor.py -i <path/input_filename.txt>
+python -m extractor.py -i <path/input_filename.txt>
 ```
 or  
 ```
-python extractor.py -i <path/input_filename.txt> -o <path/output_filename.csv>
+python -m extractor.py -i <path/input_filename.txt> -o <path/output_filename.csv>
 ```
 Default output report path: data/report_file.csv

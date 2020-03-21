@@ -4,7 +4,7 @@ Date: 2nd March 2020
 """
 import os
 from pytest import fixture, mark
-from src.extractor import (read_export_file,
+from wextractor.extractor import (read_export_file,
                            substitute_odia_digits,
                            extract_patterns,
                            process_file,
@@ -86,7 +86,7 @@ class TestExtractor:
     def test_write_extract_file(self, get_file_content):
         """test the report writing process
         """
-        output_file_name = 'test_write.csv'
+        output_file_name = 'tests/test_write.csv'
         csv_list = [
             {'names': '+91 12345 67890', 'dates': '2/28/20', 'times': '10:32 pm',
                 'messages': ' qwser: checking in', 'counts': ''},

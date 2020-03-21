@@ -27,4 +27,4 @@ jobs:
     - name: Test with pytest
       run: |
         pip install pytest
-        coverage run --source=src  -m pytest tests -v -s  && coverage html -i
+        coverage run --source=wextractor  -m pytest tests -v -s  && coverage html -i
