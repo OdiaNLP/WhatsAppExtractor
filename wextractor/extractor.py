@@ -115,11 +115,14 @@ def write_extract_file(output_filename: str, csv_list: list, col_keys: list):
     """
     Write the extracted content into the file
     """
-    print('Current dir: ', os.getcwd())
-    with open(output_filename, "w+") as csv_file:
-        writer = csv.DictWriter(csv_file, fieldnames=columns.keys())
-        writer.writeheader()
-        writer.writerows(csv_list)
+    try:
+        with open(output_filename, "w+") as csv_file:
+            writer = csv.DictWriter(csv_file, fieldnames=columns.keys())
+            writer.writeheader()
+            writer.writerows(csv_list)
+    except FileNotFoundError:
+        print("Output file not present", output_filename)
+        print('Current dir: ', os.getcwd())
 
 
 def main():
