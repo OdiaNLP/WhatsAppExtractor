@@ -14,7 +14,7 @@ from src.extractor import (read_export_file,
 
 @fixture
 def get_file_content():
-    file_path = '/Users/soumendra/Documents/Projects/WhatsAppExtractor/tests/mock_file.txt'
+    file_path = 'tests/mock_file.txt'
     with open(file_path, encoding='utf-8') as inp_file:
         content = inp_file.readlines()
     return content
@@ -23,7 +23,7 @@ def get_file_content():
 class TestExtractor:
     """Test the extractor module
     """
-    file_path = '/Users/soumendra/Documents/Projects/WhatsAppExtractor/tests/mock_file.txt'
+    file_path = 'tests/mock_file.txt'
 
     def test_read_export_file(self):
         """open the file content and match the content
