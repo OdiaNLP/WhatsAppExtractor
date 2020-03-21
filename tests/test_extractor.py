@@ -123,5 +123,5 @@ class TestExtractor:
     def test_main(self):
         """test the main function of the extractor module
         """
-        sys.argv[1:] = ['-i', 'tests/mock_file.txt']
+        sys.argv[1:] = ['-i', 'tests/mock_file.txt', '-o', 'tests/test_write.csv']
         main()

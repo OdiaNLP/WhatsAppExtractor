@@ -122,7 +122,8 @@ def write_extract_file(output_filename: str, csv_list: list, col_keys: list):
             writer.writerows(csv_list)
     except FileNotFoundError:
         print("Output file not present", output_filename)
-        print('Current dir: ', os.getcwd())
+        print("Current dir: ", os.getcwd())
+        raise FileNotFoundError
 
 
 def main():
@@ -137,7 +138,7 @@ def main():
         default="./data/report_file.csv",
     )
     args = parser.parse_args()
-    
+
     input_filename = args.input
     output_filename = args.output
 
