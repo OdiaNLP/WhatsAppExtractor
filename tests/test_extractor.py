@@ -3,13 +3,14 @@ Author: Soumendra Kumar Sahoo
 Date: 2nd March 2020
 """
 import os
+import sys
+from unittest import mock
+
 from pytest import fixture, mark
-from wextractor.extractor import (read_export_file,
-                           substitute_odia_digits,
-                           extract_patterns,
-                           process_file,
-                           write_extract_file,
-                           main)
+
+from wextractor.extractor import (extract_patterns, main, process_file,
+                                  read_export_file, substitute_odia_digits,
+                                  write_extract_file)
 
 
 @fixture
@@ -24,8 +25,9 @@ class TestExtractor:
     """Test the extractor module
     """
     file_path = 'tests/mock_file.txt'
+    wrong_file_path = 'tests/file_does_not_exist.txt'
 
-    def test_read_export_file(self):
+    def test_read_export_file_happy(self):
         """open the file content and match the content
 
         Arguments:
@@ -35,6 +37,17 @@ class TestExtractor:
             mock_content = mf.readlines()
         read_content = read_export_file(self.file_path)
         assert read_content == mock_content
+
+    def test_read_export_file_sad(self):
+        """open the file content and match the content
+
+        Arguments:
+            test_filename {str} -- filename
+        """
+        try:
+            read_export_file(self.wrong_file_path)
+        except FileNotFoundError:
+            assert True
 
     def test_substitute_odia_digits(self):
         """tests the odia digit substitution
@@ -61,7 +74,8 @@ class TestExtractor:
         exp_response = [
             {'names': '+91 12345 67890', 'dates': '2/28/20', 'times': '10:32 PM',
                 'messages': ' QWSER: Checking In', 'counts': ''},
-            {'names': 'Don MTE2O', 'dates': '2/29/20', 'times': '12:13 AM', 'messages': ' Looks good to me , ', 'counts': ''},
+            {'names': 'Don MTE2O', 'dates': '2/29/20', 'times': '12:13 AM',
+                'messages': ' Looks good to me , ', 'counts': ''},
             {'names': '', 'dates': '', 'times': '', 'messages': '', 'counts': ''},
             {'names': '+91 12345 67890', 'dates': '2/29/20',
                 'times': '12:13 AM', 'messages': ' 😊', 'counts': ''},
@@ -79,7 +93,8 @@ class TestExtractor:
         """test the entire process
         """
         exp_res = [
-            {'names': '+91 12345 67890', 'dates': '2/28/20', 'times': '10:32 pm', 'messages': ' qwser: checking in', 'counts': ''}, {'names': 'don mte2o', 'dates': '2/29/20', 'times': '12:13 am', 'messages': ' looks good to me , Thanks QWSER checking in', 'counts': ''}, {'names': '+91 12345 67890', 'dates': '2/29/20', 'times': '12:15 am', 'messages': ' checking out: tweet count: 8568', 'counts': '8568'}, {'names': 'don mte2o', 'dates': '2/29/20', 'times': '8:24 am', 'messages': ' don : checking in', 'counts': ''}
+            {'names': '+91 12345 67890', 'dates': '2/28/20', 'times': '10:32 pm', 'messages': ' qwser: checking in', 'counts': ''}, {'names': 'don mte2o', 'dates': '2/29/20', 'times': '12:13 am', 'messages': ' looks good to me , Thanks QWSER checking in',
+                                                                                                                                     'counts': ''}, {'names': '+91 12345 67890', 'dates': '2/29/20', 'times': '12:15 am', 'messages': ' checking out: tweet count: 8568', 'counts': '8568'}, {'names': 'don mte2o', 'dates': '2/29/20', 'times': '8:24 am', 'messages': ' don : checking in', 'counts': ''}
         ]
         assert exp_res == process_file(get_file_content)
 
@@ -104,3 +119,9 @@ class TestExtractor:
         }
         write_extract_file(output_file_name, csv_list, column_keys)
         assert os.path.isfile(output_file_name)
+
+    def test_main(self):
+        """test the main function of the extractor module
+        """
+        sys.argv[1:] = ['-i', 'tests/mock_file.txt']
+        main()
