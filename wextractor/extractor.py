@@ -115,6 +115,7 @@ def write_extract_file(output_filename: str, csv_list: list, col_keys: list):
     """
     Write the extracted content into the file
     """
+    print('Current dir: ', os.getcwd)
     with open(output_filename, "w+") as csv_file:
         writer = csv.DictWriter(csv_file, fieldnames=columns.keys())
         writer.writeheader()
@@ -133,7 +134,7 @@ def main():
         default="./data/report_file.csv",
     )
     args = parser.parse_args()
-    print(os.getcwd)
+    
     input_filename = args.input
     output_filename = args.output
 
