@@ -132,3 +132,4 @@ dmypy.json
 data/report_file.csv
 data/WhatsApp*.txt
 wextractor/.DS_Store
+.DS_Store
