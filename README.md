@@ -4,6 +4,9 @@
 <a href="https://codecov.io/gh/MTEnglish2Odia/WhatsAppExtractor">
   <img src="https://codecov.io/gh/MTEnglish2Odia/WhatsAppExtractor/branch/master/graph/badge.svg" /></a>
 <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
+<a href="Code smells"><img src="https://sonarcloud.io/api/project_badges/measure?project=MTEnglish2Odia_WhatsAppExtractor&metric=code_smells"></a>
+<a href="Quality gate"><img src="https://sonarcloud.io/api/project_badges/measure?project=MTEnglish2Odia_WhatsAppExtractor&metric=alert_status"></a>
+<a href="tech debt"><img src="https://sonarcloud.io/api/project_badges/measure?project=MTEnglish2Odia_WhatsAppExtractor&metric=sqale_index"></a>
 </p>
 
 # WhatsAppExtractor
