@@ -8,6 +8,8 @@ import os
 import re
 from collections import defaultdict
 
+import aiofiles
+
 from .patterns import (
     date_pattern,
     time_pattern,
@@ -102,12 +104,12 @@ def process_file(content: list):
     return csv_list
 
 
-def write_extract_file(output_filename: str, csv_list: list):
+async def write_extract_file(output_filename: str, csv_list: list):
     """
     Write the extracted content into the file
     """
     try:
-        with open(output_filename, "w+") as csv_file:
+        with aiofiles.open(output_filename, "w+") as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=columns.keys())
             writer.writeheader()
             writer.writerows(csv_list)
