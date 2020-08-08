@@ -1,3 +1,4 @@
+import os
 import re
 
 from fastapi import FastAPI, File, UploadFile
@@ -13,7 +14,7 @@ app = FastAPI()
 async def create_files(file: UploadFile = File(...)):
     file2store = await file.read()
     csv_list = process_file(re.compile(r'\n(?=\d)').split(file2store.decode("utf-8")))
-    op_filename = "./data/report_file.csv"
+    op_filename = os.path.join(os.getcwd(), "report_file.csv")
     write_extract_file(op_filename, csv_list)
     return FileResponse(op_filename, media_type='application/octet-stream', filename="report.csv")
 
