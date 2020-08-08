@@ -109,9 +109,9 @@ async def write_extract_file(output_filename: str, csv_list: list):
     Write the extracted content into the file
     """
     try:
-        with aiofiles.open(output_filename, "w+") as csv_file:
+        async with aiofiles.open(output_filename, "w+") as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=columns.keys())
-            writer.writeheader()
+            await writer.writeheader()
             writer.writerows(csv_list)
     except FileNotFoundError:
         print("Output file not present", output_filename)
