@@ -78,7 +78,7 @@ class TestExtractor:
                 "names": "Don MTE2O",
                 "dates": "2/29/20",
                 "times": "12:13 AM",
-                "messages": " Looks good to me , ",
+                "messages": " Looks good to me ,",
                 "counts": "",
             },
             {"names": "", "dates": "", "times": "", "messages": "", "counts": ""},

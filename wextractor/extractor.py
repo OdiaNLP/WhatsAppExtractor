@@ -86,7 +86,7 @@ def process_file(content: list):
         if re.findall(date_pattern, line.strip()):
             # if date found in a line, consider it as a new message
             if len(temp_dict) == len(columns) and re.findall(
-                checking_pattern, "".join(temp_dict.get("messages").strip())
+                checking_pattern, "".join(temp_dict.get("messages"))
             ):
                 # if all values of the csv columns are present then only append
                 # into the report file
