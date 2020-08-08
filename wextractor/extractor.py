@@ -119,14 +119,9 @@ def write_extract_file(output_filename: str, csv_list: list):
 
 def main():
     parser = argparse.ArgumentParser(description="Whatsapp extractor")
+    parser.add_argument("-i", "--input", help="Input Whatsapp chat export filename", required=True)
     parser.add_argument(
-        "-i", "--input", help="Input Whatsapp chat export filename", required=True
-    )
-    parser.add_argument(
-        "-o",
-        "--output",
-        help="Output report csv filename",
-        default="./data/report_file.csv",
+        "-o", "--output", help="Output report csv filename", default="./data/report_file.csv",
     )
     args = parser.parse_args()
 
