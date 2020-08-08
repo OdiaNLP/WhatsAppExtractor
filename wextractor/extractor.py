@@ -111,7 +111,7 @@ async def write_extract_file(output_filename: str, csv_list: list):
     try:
         async with aiofiles.open(output_filename, "w+") as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=columns.keys())
-            await writer.writeheader()
+            writer.writeheader()
             writer.writerows(csv_list)
     except FileNotFoundError:
         print("Output file not present", output_filename)
