@@ -1,4 +1,9 @@
 black==19.10b0
 codecov==2.0.22
 coverage==5.0.4
+fastapi==0.60.1
 pytest==5.3.5
+python-multipart==0.0.5
+typing~=3.7.4.1
+uvicorn==0.11.8
+starlette==0.13.6

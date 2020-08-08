@@ -6,8 +6,7 @@ import argparse
 import csv
 import os
 import re
-import sys
-from collections import defaultdict, Counter
+from collections import defaultdict
 
 from .patterns import (
     date_pattern,
@@ -18,7 +17,6 @@ from .patterns import (
     count_pattern,
     DIGIT_MAP,
 )
-
 
 columns = dict(
     [
@@ -65,7 +63,7 @@ def substitute_odia_digits(text: str):
 
 def extract_patterns(line: str):
     """Extracts the patterns present in the line
-    
+
     Arguments:
         line {str} -- contains one individual line
     """
@@ -88,7 +86,7 @@ def process_file(content: list):
         if re.findall(date_pattern, line.strip()):
             # if date found in a line, consider it as a new message
             if len(temp_dict) == len(columns) and re.findall(
-                checking_pattern, "".join(temp_dict.get("messages"))
+                checking_pattern, "".join(temp_dict.get("messages").strip())
             ):
                 # if all values of the csv columns are present then only append
                 # into the report file
@@ -104,7 +102,7 @@ def process_file(content: list):
     return csv_list
 
 
-def write_extract_file(output_filename: str, csv_list: list, col_keys: list):
+def write_extract_file(output_filename: str, csv_list: list):
     """
     Write the extracted content into the file
     """
@@ -137,4 +135,4 @@ def main():
 
     file_content = read_export_file(input_filename)
     csv_list = process_file(file_content)
-    write_extract_file(output_filename, csv_list, columns.keys())
+    write_extract_file(output_filename, csv_list)
