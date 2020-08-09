@@ -2,8 +2,7 @@ import os
 import re
 
 from fastapi import FastAPI, File, UploadFile
-from fastapi.responses import HTMLResponse
-from starlette.responses import FileResponse
+from fastapi.responses import HTMLResponse, FileResponse
 
 from wextractor.extractor import process_file, write_extract_file
 
@@ -15,8 +14,8 @@ async def create_files(file: UploadFile = File(...)):
     file2store = await file.read()
     csv_list = process_file(re.compile(r'\n(?=\d)').split(file2store.decode("utf-8")))
     op_filename = os.path.join(os.getcwd(), "report_file.csv")
-    await write_extract_file(op_filename, csv_list)
-    return FileResponse(op_filename, media_type='application/octet-stream', filename="report.csv")
+    write_extract_file(op_filename, csv_list)
+    return FileResponse(op_filename)
 
 
 @app.get("/")

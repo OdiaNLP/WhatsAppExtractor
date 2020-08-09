@@ -8,8 +8,6 @@ import os
 import re
 from collections import defaultdict
 
-import aiofiles
-
 from .patterns import (
     date_pattern,
     time_pattern,
@@ -45,7 +43,7 @@ def read_export_file(export_file: str):
     """
     Read the file content
     input: Whatsapp file
-    output: list of content splitted by line
+    output: list of content split by line
     """
     with open(export_file, encoding="utf-8") as inp_file:
         content = inp_file.readlines()
@@ -104,12 +102,12 @@ def process_file(content: list):
     return csv_list
 
 
-async def write_extract_file(output_filename: str, csv_list: list):
+def write_extract_file(output_filename: str, csv_list: list):
     """
     Write the extracted content into the file
     """
     try:
-        async with aiofiles.open(output_filename, "w+") as csv_file:
+        with open(output_filename, "w+") as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=columns.keys())
             writer.writeheader()
             writer.writerows(csv_list)
