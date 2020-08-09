@@ -13,8 +13,6 @@
 Extracts necessary contents from a WhatsApp chat-export.  
 ## Prerequisites
 - Please see the [Whatsapp FAQ](https://faq.whatsapp.com/en/android/23756533), if you want to know how to export chat conversations on whatsapp.
-- Python >= 3.6 
-
 
 ## Usage:
 1. Go to https://whatsapp-extractor.herokuapp.com/  
