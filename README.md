@@ -17,10 +17,10 @@ Extracts necessary contents from a WhatsApp chat-export.
 
 
 ## Usage:
-1. Go to https://whatsapp-extractor.herokuapp.com/
-![Home screen](docs/Home screen.png)
-2. Upload the exported chat from WhatsApp.
-![Home screen](docs/File upload screen.png)
-3. Click on submit query and download the report.
-![Home screen](docs/Report download screen.png)
+1. Go to https://whatsapp-extractor.herokuapp.com/  
+![Home screen](docs/Home_screen.png)
+2. Upload the exported chat from WhatsApp.  
+![Upload screen](docs/File_upload_screen.png)
+3. Click on submit query and download the report.  
+![Download screen](docs/Report_download_screen.png)
 
