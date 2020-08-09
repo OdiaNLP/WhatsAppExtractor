@@ -4,15 +4,12 @@ Date: 2nd March 2020
 """
 import os
 import sys
-from unittest import mock
 
-from pytest import fixture, mark
+from pytest import fixture
 
 from wextractor.extractor import (
     extract_patterns,
-    main,
     process_file,
-    read_export_file,
     substitute_odia_digits,
     write_extract_file,
 )
@@ -32,28 +29,6 @@ class TestExtractor:
 
     file_path = "tests/mock_file.txt"
     wrong_file_path = "tests/file_does_not_exist.txt"
-
-    def test_read_export_file_happy(self):
-        """open the file content and match the content
-
-        Arguments:
-            test_filename {str} -- filename
-        """
-        with open(self.file_path, "r+", encoding="utf-8") as mf:
-            mock_content = mf.readlines()
-        read_content = read_export_file(self.file_path)
-        assert read_content == mock_content
-
-    def test_read_export_file_sad(self):
-        """open the file content and match the content
-
-        Arguments:
-            test_filename {str} -- filename
-        """
-        try:
-            read_export_file(self.wrong_file_path)
-        except FileNotFoundError:
-            assert True
 
     def test_substitute_odia_digits(self):
         """tests the odia digit substitution
@@ -178,9 +153,3 @@ class TestExtractor:
         ]
         write_extract_file(output_file_name, csv_list)
         assert os.path.isfile(output_file_name)
-
-    def test_main(self):
-        """test the main function of the extractor module
-        """
-        sys.argv[1:] = ["-i", "tests/mock_file.txt", "-o", "tests/test_write.csv"]
-        main()
