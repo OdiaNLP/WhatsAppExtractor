@@ -29,27 +29,6 @@ columns = dict(
 )
 
 
-def check_file_existence(func):
-    def file_exists(*args):
-        if not os.path.isfile(args[0]):
-            raise FileNotFoundError(f'The input file: "{args[0]}" does not exist')
-        return func(*args)
-
-    return file_exists
-
-
-@check_file_existence
-def read_export_file(export_file: str):
-    """
-    Read the file content
-    input: Whatsapp file
-    output: list of content split by line
-    """
-    with open(export_file, encoding="utf-8") as inp_file:
-        content = inp_file.readlines()
-    return content
-
-
 def substitute_odia_digits(text: str):
     """
     substitute Odia digits with English for easier visualization
@@ -115,19 +94,3 @@ def write_extract_file(output_filename: str, csv_list: list):
         print("Output file not present", output_filename)
         print("Current dir: ", os.getcwd())
         raise FileNotFoundError
-
-
-def main():
-    parser = argparse.ArgumentParser(description="Whatsapp extractor")
-    parser.add_argument("-i", "--input", help="Input Whatsapp chat export filename", required=True)
-    parser.add_argument(
-        "-o", "--output", help="Output report csv filename", default="./data/report_file.csv",
-    )
-    args = parser.parse_args()
-
-    input_filename = args.input
-    output_filename = args.output
-
-    file_content = read_export_file(input_filename)
-    csv_list = process_file(file_content)
-    write_extract_file(output_filename, csv_list)

@@ -17,11 +17,10 @@ Extracts necessary contents from a WhatsApp chat-export.
 
 
 ## Usage:
-```
-python -m wextractor -i <path/input_filename.txt>
-```
-or  
-```
-python -m wextractor -i <path/input_filename.txt> -o <path/output_filename.csv>
-```
-Default output report path: data/report_file.csv
+1. Go to https://whatsapp-extractor.herokuapp.com/
+![Home screen](docs/Home screen.png)
+2. Upload the exported chat from WhatsApp.
+![Home screen](docs/File upload screen.png)
+3. Click on submit query and download the report.
+![Home screen](docs/Report download screen.png)
+
