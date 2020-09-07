@@ -7,6 +7,7 @@
 <a href="Code smells"><img src="https://sonarcloud.io/api/project_badges/measure?project=MTEnglish2Odia_WhatsAppExtractor&metric=code_smells"></a>
 <a href="Quality gate"><img src="https://sonarcloud.io/api/project_badges/measure?project=MTEnglish2Odia_WhatsAppExtractor&metric=alert_status"></a>
 <a href="tech debt"><img src="https://sonarcloud.io/api/project_badges/measure?project=MTEnglish2Odia_WhatsAppExtractor&metric=sqale_index"></a>
+<a href="https://img.shields.io/badge/Python-3.8-blue"><img alt="Python 3.8" src="https://img.shields.io/badge/Python-3.8-blue"></a>
 </p>
 
 # WhatsAppExtractor
